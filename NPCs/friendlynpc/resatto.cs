@@ -29,18 +29,14 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 
 
+
 namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 {
 	[AutoloadHead]
 	
 	public class resatto : ModNPC
 	{
-		public const string ShopName1 = "Shop";
-		public const string ShopName2 = "Shop";
-		public const string ShopName3 = "Shop";
-		public const string ShopName4 = "Shop";
-		public const string ShopName5 = "Shop";
-
+		public const string ShopName = "Shop";
 		public int NumberOfTimesTalkedTo = 0;
 		private static Profiles.StackedNPCProfile NPCProfile;
 		 private int currentShopIndex = 0;
@@ -211,8 +207,9 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 		}
   public override void SetChatButtons(ref string button, ref string button2)
     {
+		//button = shopNames[currentShopIndex]; // Utiliser le nom du magasin correspondant
         button = Language.GetTextValue("LegacyInterface.28");
-        button2 = "Cycle Shop";
+        button2 = "Next armor set";
 		if (currentShopIndex == 0) 
 		{
 			button = "resatto armor";
@@ -221,9 +218,17 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 		{
 			button = "squire armor";
 		}
-				else if (currentShopIndex == 2)
+		else if (currentShopIndex == 2)
 		{
 			button = "Mercenary armor";
+		}
+		else if (currentShopIndex == 3)
+		{
+			button = "Celeste armor";
+		}
+		else if (currentShopIndex == 4)
+		{
+			button = "Starlight armor";
 		}
     }
 
@@ -231,36 +236,112 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
     {
         if (firstButton)
         {
-			if  (currentShopIndex == 0)
-			{
-				shop = shopNames[currentShopIndex];
-			}
-			else if  (currentShopIndex == 1) 
-			{
-				shop = shopNames[currentShopIndex];
-			}
-			else if  (currentShopIndex == 2) 
-			{
-				shop = shopNames[currentShopIndex];
-			}
-			else if  (currentShopIndex == 3) 
-			{
-				shop = shopNames[currentShopIndex];
-			}
-			else if  (currentShopIndex == 4) 
-			{
-				shop = shopNames[currentShopIndex];
-			}
-
+      	  shop = shopNames[currentShopIndex];
         }
         else
         {
             // Cycle to the next shop
-            currentShopIndex = (currentShopIndex + 1) % shopNames.Length;
-            Main.NewText($"Switched to {shopNames[currentShopIndex]}");
-			Main.NewText($"{currentShopIndex}");
+       		currentShopIndex = (currentShopIndex + 1) % shopNames.Length;
+        	Main.NewText($"Switched to {shopNames[currentShopIndex]}");
         }
     }
+		public override void AddShops() {
+
+		var npcShop1 = new NPCShop(Type, "Shop1")
+			.Add<resatto_Helmet>()
+			.Add<resatto_Breastplate>()
+			.Add<resatto_Leggings>();
+		npcShop1.Register();
+
+		var npcShop2 = new NPCShop(Type, "Shop2")
+			.Add<Squire_Helmet>()
+			.Add<Squire_Breastplate>()
+			.Add<Squire_Leggings>();
+		npcShop2.Register();
+
+		var npcShop3 = new NPCShop(Type, "Shop3")
+			.Add<Mercenary_Helmet>()
+			.Add<Mercenary_Breastplate>()
+			.Add<Mercenary_Leggings>();
+		npcShop3.Register();
+
+		var npcShop4 = new NPCShop(Type, "Shop4")
+			.Add<Celeste_Helmet>()
+			.Add<Celeste_Breastplate>()
+			.Add<Celeste_Leggings>();
+		npcShop4.Register();
+
+		var npcShop5 = new NPCShop(Type, "Shop5")
+			.Add<Starlight_Helmet>()
+			.Add<Starlight_Breastplate>()
+			.Add<Starlight_Leggings>();
+		npcShop5.Register();
+			/*var npcShop = new NPCShop(Type, ShopName)
+				.Add<resatto_Helmet>()
+				.Add<resatto_Breastplate>()
+				.Add<resatto_Leggings>()
+				.Add<Squire_Helmet>()
+				.Add<Squire_Breastplate>()
+				.Add<Squire_Leggings>()
+				.Add<Mercenary_Helmet>()
+				.Add<Mercenary_Breastplate>()
+				.Add<Mercenary_Leggings>()
+				.Add<Celeste_Helmet>()
+				.Add<Celeste_Breastplate>()
+				.Add<Celeste_Leggings>()
+				.Add<Starlight_Helmet>()
+				.Add<Starlight_Breastplate>()
+				.Add<Starlight_Leggings>();
+
+			npcShop.Register(); // Name of this shop tab*/
+		}
+
+    /*public override void AddShops()
+    {
+		var npcShop = new NPCShop(Type, ShopName1);
+		if  (currentShopIndex == 0)
+			{
+			npcShop
+				.Add<lapis_chestplate>()
+				.Add<resatto_Helmet>()
+				.Add<resatto_Breastplate>()
+				.Add<resatto_Leggings>();
+			}
+		if  (currentShopIndex == 1) 
+			{
+			npcShop
+				.Add<Squire_Helmet>()
+				.Add<Squire_Breastplate>()
+				.Add<Squire_Leggings>();
+			}
+		if  (currentShopIndex == 2) 
+			{
+			// Onglet pour l'armure Mercenary
+			npcShop
+				.Add<Mercenary_Helmet>()
+				.Add<Mercenary_Breastplate>()
+				.Add<Mercenary_Leggings>();
+			}
+		if  (currentShopIndex == 3) 
+			{
+			// Onglet pour l'armure Celeste
+			npcShop
+				.Add<Celeste_Helmet>()
+				.Add<Celeste_Breastplate>()
+				.Add<Celeste_Leggings>();
+			}
+		if  (currentShopIndex == 4) 
+			{
+			// Onglet pour l'armure Starlight
+			npcShop
+				.Add<Starlight_Helmet>()
+				.Add<Starlight_Breastplate>()
+				.Add<Starlight_Leggings>();
+			}
+
+
+	npcShop.Register();
+    }*/
 
 /*public override void AddShops() {
     // Onglet pour l'armure Resatto
@@ -300,50 +381,98 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
     celesteShop.Register();
     starlightShop.Register();
 }*/
-    public override void AddShops()
+
+
+
+
+
+   /*public override void AddShops()
     {
-        var npcShop = new NPCShop(Type, shopNames[currentShopIndex]);
+        var npcShop1 = new NPCShop(Type, ShopName1);
+        var npcShop2 = new NPCShop(Type, ShopName2);
+        var npcShop3 = new NPCShop(Type, ShopName3);
+        var npcShop4 = new NPCShop(Type, ShopName4);
+        var npcShop5 = new NPCShop(Type, ShopName5);
 
         switch (currentShopIndex)
         {
             case 0:
-                AddShop1(npcShop);
+                AddShop1(npcShop1);
                 break;
             case 1:
-                AddShop2(npcShop);
+                AddShop2(npcShop2);
                 break;
             case 2:
-                AddShop3(npcShop);
+                AddShop3(npcShop3);
+                break;
+			case 3:
+                AddShop4(npcShop4);
+                break;
+			case 4:
+                AddShop5(npcShop5);
                 break;
             // Add more cases as needed
         }
 
-        npcShop.Register();
+
+        npcShop1.Register();
+		npcShop2.Register();
+        npcShop3.Register();
+        npcShop4.Register();
+        npcShop5.Register();
+
     }
 
-    private void AddShop1(NPCShop npcShop)
+    private void AddShop1(NPCShop npcShop1)
     {
-        npcShop
+        npcShop1
             .Add<resatto_Helmet>()
             .Add<resatto_Breastplate>()
             .Add<resatto_Leggings>();
     }
 
-    private void AddShop2(NPCShop npcShop)
+    private void AddShop2(NPCShop npcShop2)
     {
-        npcShop
+        npcShop2
             .Add<Squire_Helmet>()
             .Add<Squire_Breastplate>()
             .Add<Squire_Leggings>();
     }
 
-    private void AddShop3(NPCShop npcShop)
+    private void AddShop3(NPCShop npcShop3)
     {
-        npcShop
+        npcShop3
             .Add<Mercenary_Helmet>()
             .Add<Mercenary_Breastplate>()
             .Add<Mercenary_Leggings>();
     }
+	    private void AddShop4(NPCShop npcShop4)
+    {
+        npcShop4
+            .Add<Celeste_Helmet>()
+            .Add<Celeste_Breastplate>()
+            .Add<Celeste_Leggings>();
+    }
+	    private void AddShop5(NPCShop npcShop5)
+    {
+        npcShop5
+            .Add<Starlight_Helmet>()
+            .Add<Starlight_Breastplate>()
+            .Add<Starlight_Leggings>();
+    }
+	*/
+
+
+
+
+
+
+
+
+
+
+
+
 		/*public override void SetChatButtons(ref string button, ref string button2) { // What the chat buttons are when you open up the chat UI
 			button = Language.GetTextValue("LegacyInterface.28");
 			button2 = "cycle shop";
