@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
 {
-    public class Squire_Sword : ModItem
+    public class Mercenary_Axe : ModItem
     {
         
         public override void SetStaticDefaults()
@@ -25,7 +25,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             Item.DamageType = DamageClass.Melee;
             Item.width = 32;
             Item.height = 32;
-            Item.scale = 2f;
+            //Item.scale = 2f;
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Swing;

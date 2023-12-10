@@ -157,6 +157,16 @@ Items: {
 		DisplayName: Starlight_ Leggings
 		Tooltip: ""
 	}
+
+	Squire_Sword: {
+		DisplayName: Squire_ Sword
+		Tooltip: ""
+	}
+
+	Mercenary_Axe: {
+		DisplayName: Mercenary_ Axe
+		Tooltip: ""
+	}
 }
 
 Projectiles: {

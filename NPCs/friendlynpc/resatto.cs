@@ -25,6 +25,7 @@ using Hyperionandmaybeotherstuff.Items.armor.Mercenary_armor;
 using Hyperionandmaybeotherstuff.Items.armor.Celeste_Set;
 using Hyperionandmaybeotherstuff.Items.armor.Starlight_Set;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons;
 
 
 
@@ -256,13 +257,15 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 		var npcShop2 = new NPCShop(Type, "Shop2")
 			.Add<Squire_Helmet>()
 			.Add<Squire_Breastplate>()
-			.Add<Squire_Leggings>();
+			.Add<Squire_Leggings>()
+			.Add<Squire_Sword>();
 		npcShop2.Register();
 
 		var npcShop3 = new NPCShop(Type, "Shop3")
 			.Add<Mercenary_Helmet>()
 			.Add<Mercenary_Breastplate>()
-			.Add<Mercenary_Leggings>();
+			.Add<Mercenary_Leggings>()
+			.Add<Mercenary_Axe>();
 		npcShop3.Register();
 
 		var npcShop4 = new NPCShop(Type, "Shop4")
