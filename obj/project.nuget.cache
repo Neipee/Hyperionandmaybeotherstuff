@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1Boz4HeeSdHVD6nR+ZGoRh/4XMRNUY2R/RycVjMNpgj3Jpu8bi5/I4uSSNzKquyyMmjDDlL1ie3YX6kMRkwd7A==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\galaa\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Hyperionandmaybeotherstuff\\Hyperionandmaybeotherstuff.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\galaa\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

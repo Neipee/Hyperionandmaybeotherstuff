@@ -1,0 +1,19 @@
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Hyperionandmaybeotherstuff.buffs
+{
+	public class HealingCooldown : ModBuff
+	{
+		public override void SetStaticDefaults()
+        {
+			// DisplayName.SetDefault("Healing Cooldown");
+            // Description.SetDefault("You cannot use healing items for 5 seconds");
+            Main.buffNoSave[Type] = true;
+            //canBeCleared = false;
+		}
+		/*public override void Update(Player player, ref int buffIndex) {
+			player.statLife += 100; // Grant a +4 defense boost to the player while the buff is active.
+		}*/
+	}	
+}

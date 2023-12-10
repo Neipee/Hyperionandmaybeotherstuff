@@ -1,0 +1,209 @@
+Buffs: {
+	gdragbuff: {
+		DisplayName: gdragbuff
+		Description: Mods.Hyperionandmaybeotherstuff.Buffs.gdragbuff.Description
+	}
+
+	HealingCooldown: {
+		DisplayName: Healing Cooldown
+		Description: Mods.Hyperionandmaybeotherstuff.Buffs.HealingCooldown.Description
+	}
+}
+
+Items: {
+	Hyperion: {
+		DisplayName: Hyperion
+		Tooltip:
+			'''
+			[c/ed9d01:Item Ability: Wither Impact] [c/ffff55:RIGHT CLICK]
+			Teleports [c/51f051:10 blocks ]ahead of you. Then implode dealing [c/8e0000:2225 ]damage to nearby enemies.
+			Also applies the [c/348098:wither shield] scroll ability reducing damage taken and granting
+			an [c/ffaa00:❤ Absorption] shield for [c/fefe55:5 ]seconds.
+			[c/55ffff:✎ Mana cost: ][c/009e9e:none bro it's a melee weapon]
+			'''
+	}
+
+	midas_staff: {
+		DisplayName: Midas Staff
+		Tooltip:
+			'''
+			[c/ed9d01:Ability: Molten Wave] [c/ffff55:RIGHT CLICK]
+			Cast a wave of molten gold in the direction you are facing!
+			Deals [c/8e0000:200 ]damage to enemies hit.
+			'''
+	}
+
+	rodlike: {
+		DisplayName: rodlike
+		Tooltip: ""
+	}
+
+	testsword: {
+		DisplayName: testsword
+		Tooltip: ""
+	}
+
+	goldendragon: {
+		DisplayName: goldendragon
+		Tooltip: ""
+	}
+
+	ExampleLastPrism: {
+		Tooltip: ""
+		DisplayName: Example Last Prism
+	}
+
+	Hyperion7926: {
+		DisplayName: Hyperion7926
+		Tooltip: test Hyperion7926
+	}
+
+	lapis_chestplate: {
+		DisplayName: Lapis Chestplate
+		Tooltip: ""
+	}
+
+	lapis_helmet: {
+		DisplayName: Lapis Helmet
+		Tooltip: ""
+	}
+
+	lapis_leggings: {
+		DisplayName: Lapis Leggings
+		Tooltip: ""
+	}
+
+	Lapisore_item: {
+		DisplayName: Lapisore_item
+		Tooltip: ""
+	}
+
+	Pigman_sword: {
+		DisplayName: Pigman_sword
+		Tooltip: ""
+	}
+
+	resatto_Breastplate: {
+		DisplayName: resatto_ Breastplate
+		Tooltip: ""
+	}
+
+	resatto_Helmet: {
+		DisplayName: resatto_ Helmet
+		Tooltip: ""
+	}
+
+	resatto_Leggings: {
+		DisplayName: resatto_ Leggings
+		Tooltip: ""
+	}
+
+	Celeste_Breastplate: {
+		DisplayName: Celeste_ Breastplate
+		Tooltip: ""
+	}
+
+	Celeste_Helmet: {
+		DisplayName: Celeste_ Helmet
+		Tooltip: ""
+	}
+
+	Celeste_Leggings: {
+		DisplayName: Celeste_ Leggings
+		Tooltip: ""
+	}
+
+	Mercenary_Breastplate: {
+		DisplayName: Mercenary_ Breastplate
+		Tooltip: ""
+	}
+
+	Mercenary_Helmet: {
+		DisplayName: Mercenary_ Helmet
+		Tooltip: ""
+	}
+
+	Mercenary_Leggings: {
+		DisplayName: Mercenary_ Leggings
+		Tooltip: ""
+	}
+
+	Squire_Breastplate: {
+		DisplayName: Squire_ Breastplate
+		Tooltip: ""
+	}
+
+	Squire_Helmet: {
+		DisplayName: Squire_ Helmet
+		Tooltip: ""
+	}
+
+	Squire_Leggings: {
+		DisplayName: Squire_ Leggings
+		Tooltip: ""
+	}
+
+	Starlight_Breastplate: {
+		DisplayName: Starlight_ Breastplate
+		Tooltip: ""
+	}
+
+	Starlight_Helmet: {
+		DisplayName: Starlight_ Helmet
+		Tooltip: ""
+	}
+
+	Starlight_Leggings: {
+		DisplayName: Starlight_ Leggings
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	ExplosionProjectile.DisplayName: Explosion Projectile
+	ExplosionProjectile2.DisplayName: Explosion Projectile2
+	gdragpro.DisplayName: gdragpro
+	testswordpro.DisplayName: testswordpro
+	ExampleLastPrismHoldout.DisplayName: Example Last Prism Holdout
+	ExampleLastPrismBeam.DisplayName: Example Last Prism Beam
+	or.DisplayName: or
+}
+
+Biomes: {
+	LapisB: {
+		DisplayName: Lapis B
+		TownNPCDialogueName: the Lapis B
+	}
+
+	ObsidianQuarry: {
+		DisplayName: Obsidian Quarry
+		TownNPCDialogueName: the Obsidian Quarry
+	}
+}
+
+WorldGen: {
+	ExampleOrePassMessage: Mods.Hyperionandmaybeotherstuff.WorldGen.ExampleOrePassMessage
+	Lapis_orePassMessage: Mods.Hyperionandmaybeotherstuff.WorldGen.Lapis_orePassMessage
+}
+
+Tiles.Lapis_ore.MapEntry: Lapis_ore
+
+NPCs: {
+	Lapis_Zombie.DisplayName: Lapis_ Zombie
+	ExampleBoneMerchant.DisplayName: Example Bone Merchant
+
+	resatto: {
+		DisplayName: resatto
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+	}
+}
