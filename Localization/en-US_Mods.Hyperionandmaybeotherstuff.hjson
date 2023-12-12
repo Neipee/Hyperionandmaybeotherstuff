@@ -167,6 +167,11 @@ Items: {
 		DisplayName: Mercenary_ Axe
 		Tooltip: ""
 	}
+
+	Celeste_wand: {
+		DisplayName: Celeste_wand
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -177,6 +182,7 @@ Projectiles: {
 	ExampleLastPrismHoldout.DisplayName: Example Last Prism Holdout
 	ExampleLastPrismBeam.DisplayName: Example Last Prism Beam
 	or.DisplayName: or
+	Celestew_Proj.DisplayName: Celestew_ Proj
 }
 
 Biomes: {
