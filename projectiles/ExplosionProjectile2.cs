@@ -43,27 +43,27 @@ namespace Hyperionandmaybeotherstuff.projectiles
             
             for (int i = 0; i < 5; i++)
             {
-	    		int dust = Dust.NewDust(Projectile.Center- new Vector2(5, 5), 150, 150, 76, 5f, 5f, 0, default(Color), 1f);
+	    		int dust = Dust.NewDust(Projectile.Center- new Vector2(5, 5), 150, 150, DustID.Snow, 5f, 5f, 0, default(Color), 1f);
 	    		Main.dust[dust].velocity *= 0.9f;
 	    		Main.dust[dust].scale = (float)Main.rand.Next(1, 115) * 0.013f;
 	    		Main.dust[dust].noGravity = true;
 
-	    		int dust2 = Dust.NewDust(Projectile.Center - new Vector2(0, 145), 150, 150, 76, 5f, -5f, 10, default(Color), 1f);
+	    		int dust2 = Dust.NewDust(Projectile.Center - new Vector2(0, 145), 150, 150, DustID.Snow, 5f, -5f, 10, default(Color), 1f);
 	    		Main.dust[dust2].velocity *= 0.3f;
 	    		Main.dust[dust2].scale = (float)Main.rand.Next(1, 115) * 0.013f;
 	    		Main.dust[dust2].noGravity = true;
 
-                int dust3 = Dust.NewDust(Projectile.Center - new Vector2(145, 0), 150, 150, 76, -5f, 5f, 0, default(Color), 1f);
+                int dust3 = Dust.NewDust(Projectile.Center - new Vector2(145, 0), 150, 150, DustID.Snow, -5f, 5f, 0, default(Color), 1f);
 			    Main.dust[dust3].velocity *= 0.3f;
 		    	Main.dust[dust3].scale = (float)Main.rand.Next(20, 115) * 0.013f;
 	    		Main.dust[dust3].noGravity = true;
 
-                int dust4 = Dust.NewDust(Projectile.Center - new Vector2(145, 145), 150, 150, 76, -5f, -5f, 0, default(Color), 1f);
+                int dust4 = Dust.NewDust(Projectile.Center - new Vector2(145, 145), 150, 150, DustID.Snow, -5f, -5f, 0, default(Color), 1f);
 			    Main.dust[dust4].velocity *= 0.3f;
 			    Main.dust[dust4].scale = (float)Main.rand.Next(20, 115) * 0.013f;
 			    Main.dust[dust4].noGravity = true;
 
-                int dust5 = Dust.NewDust(Projectile.Center + new Vector2(30, 0), 10, 20, 227, 5f, 0f, 0, default(Color), 1f);
+                int dust5 = Dust.NewDust(Projectile.Center + new Vector2(30, 0), 10, 20, DustID.MartianHit, 5f, 0f, 0, default(Color), 1f);
 			    Main.dust[dust5].velocity *= 0.3f;
 		    	Main.dust[dust5].scale = (float)Main.rand.Next(20, 115) * 0.025f;
 	    		Main.dust[dust5].noGravity = true;

@@ -54,11 +54,11 @@ namespace Hyperionandmaybeotherstuff.projectiles
                 Projectile.damage = 200;
                 Projectile.velocity.Y = 7f;
                 Projectile.light = 1f;
-                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 153, Projectile.velocity.X , Projectile.velocity.Y , 0, default, 1f);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Honey2, Projectile.velocity.X , Projectile.velocity.Y , 0, default, 1f);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity *= Main.rand.NextFloat(1f ,2f);
 
-                int dust2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, Projectile.velocity.X , Projectile.velocity.Y+1f , 0, default, 2f);
+                int dust2 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X , Projectile.velocity.Y+1f , 0, default, 2f);
                 Main.dust[dust2].noGravity = true;                
             }
 

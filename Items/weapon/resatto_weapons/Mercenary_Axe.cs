@@ -34,7 +34,16 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            Item.shootSpeed = 0f;
+            Item.knockBack = 6; // The force of knockback of the weapon. Maximum is 20
+			Item.crit = 6; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.
         }
+        public override void MeleeEffects(Player player, Rectangle hitbox) 
+        {
+			if (Main.rand.NextBool(3)) 
+            {
+				// Emit dusts when the sword is swung
+				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height,  DustID.Silver);
+			}
+		}
     }
 }

@@ -45,7 +45,7 @@ namespace Hyperionandmaybeotherstuff.projectiles
             {
                 float radians = MathHelper.ToRadians(i);
                 Vector2 offset = new Vector2((float)Math.Cos(radians), (float)Math.Sin(radians)) * 100f; // Ajustez la distance des particules
-                int dust = Dust.NewDust(player.Center + offset - new Vector2(4, 4), 8, 8, 76, 0f, 0f, 0, default(Color), 1f); // Créer une particule
+                int dust = Dust.NewDust(player.Center + offset - new Vector2(4, 4), 8, 8, DustID.Snow, 0f, 0f, 0, default(Color), 1f); // Créer une particule
                 Main.dust[dust].velocity *= 6f;
                 Main.dust[dust].noGravity = true;
             }

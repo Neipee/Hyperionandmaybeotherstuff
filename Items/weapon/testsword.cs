@@ -20,7 +20,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon
             Item.height = 40;
             Item.useTime = 5;
             Item.useAnimation = 5;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
             Item.value = Item.sellPrice(silver: 50);
             Item.rare = ItemRarityID.Blue;
