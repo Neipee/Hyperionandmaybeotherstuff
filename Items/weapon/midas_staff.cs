@@ -23,7 +23,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon
         public override void SetDefaults()
         {
             Item.damage = 200;
-            Item.DamageType = DamageClass.Melee;
+            Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
             Item.useTime = 30;
@@ -36,6 +36,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("or").Type;
             Item.shootSpeed = 0f;
+            Item.mana = 20;
         }
 
 

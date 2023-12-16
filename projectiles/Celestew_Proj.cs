@@ -23,7 +23,7 @@ namespace Hyperionandmaybeotherstuff.projectiles
             Projectile.width = 34;
             Projectile.height = 14;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.aiStyle = -1;
             Projectile.penetrate = 999;
             Projectile.timeLeft = 32;
@@ -40,6 +40,7 @@ namespace Hyperionandmaybeotherstuff.projectiles
                 direction.Normalize();
                 Projectile.velocity = direction * 0f; // Set initial velocity towards player's cursor
                 Projectile.ai[1] = 1f; // Set AI flag to 1 to prevent this code from running again
+                Main.NewText($"postion proj{Projectile.position}");
             }
             if (++Projectile.frameCounter >= 4) 
             {
@@ -60,7 +61,7 @@ namespace Hyperionandmaybeotherstuff.projectiles
             if (timer*2 >= Projectile.ai[0]-2f)
             {
                 Projectile.alpha = 0;
-                Projectile.damage = 20;
+                Projectile.damage = 15;
                 if (timer % 10 == 0)
                 {
                     /*int dust = Dust.NewDust(Projectile.position, Projectile.height, Projectile.width, DustID.GolfPaticle, 1f, 1f, 71, new Color(255,255,255), 1f);

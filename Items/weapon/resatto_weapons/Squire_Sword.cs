@@ -21,7 +21,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
 
         public override void SetDefaults()
         {
-            Item.damage = 200;
+            Item.damage = 17;
             Item.DamageType = DamageClass.Melee;
             Item.width = 32;
             Item.height = 32;

@@ -259,7 +259,8 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 		var npcShop4 = new NPCShop(Type, "Shop4")
 			.Add<Celeste_Helmet>()
 			.Add<Celeste_Breastplate>()
-			.Add<Celeste_Leggings>();
+			.Add<Celeste_Leggings>()
+			.Add<Celeste_wand>();
 		npcShop4.Register();
 
 		var npcShop5 = new NPCShop(Type, "Shop5")

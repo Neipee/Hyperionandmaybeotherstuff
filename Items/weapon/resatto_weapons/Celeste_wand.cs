@@ -20,11 +20,11 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
 
         public override void SetDefaults()
         {
-            Item.damage = 40;
-            Item.DamageType = DamageClass.Melee;
+            Item.damage = 15;
+            Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
-            Item.useTime = 15;
+            Item.useTime = 30;
             Item.useAnimation = 15;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
@@ -34,6 +34,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("Celestew_Proj").Type;
             Item.shootSpeed = 10f;
+            Item.mana = 8;
         }
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
@@ -46,6 +47,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
         string sonale = son[Main.rand.Next(0, 3)];
         Vector2 spawnPosition = Main.MouseWorld;
         spawnPosition.Y = Main.screenPosition.Y - Main.projectile[Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI)].height;
+        Main.NewText($"pos de position ??{position}");
 
         if (-21 < nbdetile && nbdetile < 21)
         {
@@ -54,8 +56,8 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             {
                 // Créer un nouveau projectile
                 Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+1f);
+                Main.NewText($"pos joueur{player.position}");
                 // Jouer le son sélectionné
-                Main.NewText($"testestest {sonale}");
                 SoundStyle style = new SoundStyle("Terraria/Sounds/" + sonale) with { Volume = .41f,  PitchVariance = .61f,};
                 SoundEngine.PlaySound(style);
 
