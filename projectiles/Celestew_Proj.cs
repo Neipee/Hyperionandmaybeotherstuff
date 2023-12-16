@@ -34,38 +34,33 @@ namespace Hyperionandmaybeotherstuff.projectiles
 
         public override void AI()
         {
-            
+            if (Projectile.ai[1] == 0f) // If AI flag is 0, set initial position and velocity
+            {
+                Vector2 direction = Main.MouseWorld - Projectile.Center; // Calculate direction towards player's cursor
+                direction.Normalize();
+                Projectile.velocity = direction * 0f; // Set initial velocity towards player's cursor
+                Projectile.ai[1] = 1f; // Set AI flag to 1 to prevent this code from running again
+            }
+            if (++Projectile.frameCounter >= 4) 
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= Main.projFrames[Projectile.type])
+                    Projectile.frame = 0;
+            }
+            timer += 1f;
+            if (timer % 20 == 0)
+            {
+                Projectile.rotation = Main.rand.NextFloat(1.2f, 1.9f);
+            }
+
             Projectile.alpha = 255;
             Projectile.damage = 0;
-            Projectile.velocity.Y = 0f;
-            timer += 1f;
 
-            if (timer >= Projectile.ai[0]-8f) {
-                Projectile.alpha = 0;
-                Projectile.velocity.Y = -5f; 
-            }
-             if (timer >= Projectile.ai[0]-4f) {
-                Projectile.velocity.Y = 2f; 
-            }
-			if (timer >= Projectile.ai[0]) 
+
+            if (timer*2 >= Projectile.ai[0]-2f)
             {
-                if (++Projectile.frameCounter >= 4) 
-                {
-                    Projectile.frameCounter = 0;
-                    if (++Projectile.frame >= Main.projFrames[Projectile.type])
-                        Projectile.frame = 0;
-                }
-                timer += 1f;
-
-                if (Projectile.ai[1] == 0f) // If AI flag is 0, set initial position and velocity
-                {
-                    Vector2 direction = Main.MouseWorld - Projectile.Center; // Calculate direction towards player's cursor
-                    direction.Normalize();
-                    Projectile.velocity = direction * 0f; // Set initial velocity towards player's cursor
-                    Projectile.ai[1] = 1f; // Set AI flag to 1 to prevent this code from running again
-                }
-
-                // Only spawn dust particles every 5 ticks (adjust the number as needed)
+                Projectile.alpha = 0;
+                Projectile.damage = 20;
                 if (timer % 10 == 0)
                 {
                     /*int dust = Dust.NewDust(Projectile.position, Projectile.height, Projectile.width, DustID.GolfPaticle, 1f, 1f, 71, new Color(255,255,255), 1f);
@@ -81,10 +76,6 @@ namespace Hyperionandmaybeotherstuff.projectiles
                         dust1.shader = GameShaders.Armor.GetSecondaryShader(32, Main.LocalPlayer);
                     }
                     
-                }
-                if (timer % 20 == 0)
-                {
-                    Projectile.rotation = Main.rand.NextFloat(1.2f, 1.9f);
                 }
             }
         }
