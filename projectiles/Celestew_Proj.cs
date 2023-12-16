@@ -1,7 +1,12 @@
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using System;
+using Terraria.Graphics.Shaders;
+
+
 
 namespace Hyperionandmaybeotherstuff.projectiles
 {
@@ -9,61 +14,79 @@ namespace Hyperionandmaybeotherstuff.projectiles
     {
         public override void SetStaticDefaults()
         {
+            //Main.RegisterItemAnimation(Projectile.type, new DrawAnimationVertical(6, 4));
+            Main.projFrames[Projectile.type] = 4;
         }
 
  public override void SetDefaults()
         {
-            Projectile.width = 10;
-            Projectile.height = 40;
+            Projectile.width = 34;
+            Projectile.height = 14;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.aiStyle = -1;
-            Projectile.penetrate = 1;
-            Projectile.timeLeft = 1200;
+            Projectile.penetrate = 999;
+            Projectile.timeLeft = 32;
             Projectile.tileCollide = true;
+            Projectile.rotation = Main.rand.NextFloat(1.2f, 1.9f);
         }
         private float timer = 0;
 
         public override void AI()
         {
+            
+            Projectile.alpha = 255;
+            Projectile.damage = 0;
+            Projectile.velocity.Y = 0f;
             timer += 1f;
-            if (Projectile.ai[0] == 0f) // If AI flag is 0, set initial position and velocity
-            {
-                Projectile.position.Y = Main.screenPosition.Y - Projectile.height; // Spawn projectile at top of screen
-                Projectile.position.X = Main.MouseWorld.X; // Set X position to player's cursor position
-                Vector2 direction = Main.MouseWorld - Projectile.Center; // Calculate direction towards player's cursor
-                direction.Normalize();
-                Projectile.velocity = direction * 3f; // Set initial velocity towards player's cursor
-                Projectile.rotation = 1.6f;
-                Projectile.ai[0] = 1f; // Set AI flag to 1 to prevent this code from running again
+
+            if (timer >= Projectile.ai[0]-8f) {
+                Projectile.alpha = 0;
+                Projectile.velocity.Y = -5f; 
             }
-            // Rotate projectile based on its velocity
-
-            // Spawn dust effect
-            int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Electric, 0f, 0f, 0, default(Color), 1.2f);
-            Main.dust[dust].velocity = Projectile.velocity * 0f;
-            Main.dust[dust].noGravity = true;
-        }
-
-        /*private int Target()
-        {
-            int target = -1;
-            float distance = 160f; // Maximum distance for lightning strike
-            for (int k = 0; k < Main.maxNPCs; k++)
+             if (timer >= Projectile.ai[0]-4f) {
+                Projectile.velocity.Y = 2f; 
+            }
+			if (timer >= Projectile.ai[0]) 
             {
-                if (Main.npc[k].active && !Main.npc[k].friendly && Main.npc[k].lifeMax > 5)
+                if (++Projectile.frameCounter >= 4) 
                 {
-                    float currentDistance = Vector2.Distance(Projectile.Center, Main.npc[k].Center);
-                    if (currentDistance < distance)
+                    Projectile.frameCounter = 0;
+                    if (++Projectile.frame >= Main.projFrames[Projectile.type])
+                        Projectile.frame = 0;
+                }
+                timer += 1f;
+
+                if (Projectile.ai[1] == 0f) // If AI flag is 0, set initial position and velocity
+                {
+                    Vector2 direction = Main.MouseWorld - Projectile.Center; // Calculate direction towards player's cursor
+                    direction.Normalize();
+                    Projectile.velocity = direction * 0f; // Set initial velocity towards player's cursor
+                    Projectile.ai[1] = 1f; // Set AI flag to 1 to prevent this code from running again
+                }
+
+                // Only spawn dust particles every 5 ticks (adjust the number as needed)
+                if (timer % 10 == 0)
+                {
+                    /*int dust = Dust.NewDust(Projectile.position, Projectile.height, Projectile.width, DustID.GolfPaticle, 1f, 1f, 71, new Color(255,255,255), 1f);
+                    Main.dust[dust].velocity = Projectile.velocity * 0f;
+                    Main.dust[dust].noGravity = true;*/
+                    if (Main.rand.NextFloat() < 0.9302326f)
                     {
-                        distance = currentDistance;
-                        target = k;
+                        Dust dust1;
+                        // You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
+                        Vector2 position = Projectile.position;
+                        dust1 = Main.dust[Terraria.Dust.NewDust(position, 30, 30, DustID.Electric, 0f, 0f, 0, new Color(255,255,255), 0.8139535f)];
+                        dust1.noGravity = true;
+                        dust1.shader = GameShaders.Armor.GetSecondaryShader(32, Main.LocalPlayer);
                     }
+                    
+                }
+                if (timer % 20 == 0)
+                {
+                    Projectile.rotation = Main.rand.NextFloat(1.2f, 1.9f);
                 }
             }
-            return target;
-        }*/
-            // Add logic for lightning strike effect here
-            // You can use projectile.localAI[0] to track additional information
+        }
     }
 }

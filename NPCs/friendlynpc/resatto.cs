@@ -1,33 +1,21 @@
 using Microsoft.Xna.Framework;
 using System;
-using System.IO;
 using Terraria;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.ModLoader.Utilities;
 using System.Collections.Generic;
-using System.Linq;
 using Terraria.GameContent;
 using Terraria.Localization;
 using Terraria.Utilities;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent.Personalities;
-using Terraria.Audio;
-using Hyperionandmaybeotherstuff.Items.armor.lapis_armor;
 using Hyperionandmaybeotherstuff.Items.armor.resatto_armor;
 using Hyperionandmaybeotherstuff.Items.armor.Squire_armor;
 using Hyperionandmaybeotherstuff.Items.armor.Mercenary_armor;
 using Hyperionandmaybeotherstuff.Items.armor.Celeste_Set;
 using Hyperionandmaybeotherstuff.Items.armor.Starlight_Set;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons;
-
-
 
 
 
