@@ -28,7 +28,7 @@ namespace Hyperionandmaybeotherstuff.Items.armor.lapis_armor
 	public override void UpdateArmorSet(Player player) 
 	{
 			player.setBonus = " [c/FFA500:Health]\n"
-			+"Increases the wearer's maximum [c/FF5555:❤ Health] by [c/55FF55:60]";		
+			+"Increases the wearer's maximum [c/FF5555:❤ Health] by [c/55FF55:20]";		
 			player.statLifeMax2 += 20;
 			/* Here are the individual weapon class bonuses.
 			player.meleeDamage -= 0.2f;

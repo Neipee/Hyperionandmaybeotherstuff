@@ -23,7 +23,7 @@ namespace Hyperionandmaybeotherstuff.projectiles
             Projectile.height = 40;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Magic;
             Projectile.timeLeft = 700;
             Projectile.penetrate = 900;
             //Projectile.tileCollide = false; // Désactiver la collision avec les tuiles
