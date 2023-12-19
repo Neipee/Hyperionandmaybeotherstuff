@@ -8,7 +8,7 @@ using Terraria.Graphics.Shaders;
 
 
 
-namespace Hyperionandmaybeotherstuff.projectiles
+namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
 {
     public class Celestew_Proj : ModProjectile
     {

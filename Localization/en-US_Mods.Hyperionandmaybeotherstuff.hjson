@@ -172,6 +172,11 @@ Items: {
 		DisplayName: Celeste_wand
 		Tooltip: ""
 	}
+
+	Starlight_Wand: {
+		DisplayName: Starlight_ Wand
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -183,6 +188,7 @@ Projectiles: {
 	ExampleLastPrismBeam.DisplayName: Example Last Prism Beam
 	or.DisplayName: or
 	Celestew_Proj.DisplayName: Celestew_ Proj
+	Starlightproj.DisplayName: Starlightproj
 }
 
 Biomes: {
