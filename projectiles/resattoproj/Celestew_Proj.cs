@@ -34,6 +34,10 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
 
         public override void AI()
         {
+            
+            Projectile.alpha = 255;
+            Projectile.damage = 0;
+
             if (Projectile.ai[1] == 0f) // If AI flag is 0, set initial position and velocity
             {
                 Vector2 direction = Main.MouseWorld - Projectile.Center; // Calculate direction towards player's cursor
@@ -53,9 +57,6 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
             {
                 Projectile.rotation = Main.rand.NextFloat(1.2f, 1.9f);
             }
-
-            Projectile.alpha = 255;
-            Projectile.damage = 0;
 
 
             if (timer*2 >= Projectile.ai[0]-2f)
