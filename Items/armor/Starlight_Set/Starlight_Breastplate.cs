@@ -12,7 +12,11 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Starlight_Set
 			Item.height = 18;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 3;
+			Item.defense = 6;
+		}
+		public override void UpdateEquip(Player player)
+		{
+			player.GetDamage<MagicDamageClass>() += 0.08f;
 		}
 		/*public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);

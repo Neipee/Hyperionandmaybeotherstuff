@@ -25,9 +25,9 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             Item.DamageType = DamageClass.Melee;
             Item.width = 32;
             Item.height = 32;
-            //Item.scale = 2f;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.scale = 1.1f;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 5;
             Item.value = Item.sellPrice(gold: 1);

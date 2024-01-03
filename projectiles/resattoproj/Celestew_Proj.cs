@@ -36,7 +36,6 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
         {
             
             Projectile.alpha = 255;
-            Projectile.damage = 0;
 
             if (Projectile.ai[1] == 0f) // If AI flag is 0, set initial position and velocity
             {
@@ -44,7 +43,6 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
                 direction.Normalize();
                 Projectile.velocity = direction * 0f; // Set initial velocity towards player's cursor
                 Projectile.ai[1] = 1f; // Set AI flag to 1 to prevent this code from running again
-                Main.NewText($"postion proj{Projectile.position}");
             }
             if (++Projectile.frameCounter >= 4) 
             {
@@ -59,10 +57,9 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
             }
 
 
-            if (timer*2 >= Projectile.ai[0]-2f)
+            if (timer*3.2 >= Projectile.ai[0]-2f)
             {
                 Projectile.alpha = 0;
-                Projectile.damage = 15;
                 if (timer % 10 == 0)
                 {
                     /*int dust = Dust.NewDust(Projectile.position, Projectile.height, Projectile.width, DustID.GolfPaticle, 1f, 1f, 71, new Color(255,255,255), 1f);

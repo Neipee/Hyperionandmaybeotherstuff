@@ -16,8 +16,11 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Celeste_Set
 			Item.height = 18;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 2;
+			Item.defense = 4;
 		}
-
+		public override void UpdateEquip(Player player)
+		{
+			player.GetDamage<MagicDamageClass>() += 0.05f;
+		}
 	}
 }

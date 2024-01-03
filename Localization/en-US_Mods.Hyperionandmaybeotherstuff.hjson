@@ -74,108 +74,128 @@ Items: {
 	}
 
 	Lapisore_item: {
-		DisplayName: Lapisore_item
+		DisplayName: Lapisore item
 		Tooltip: ""
 	}
 
 	Pigman_sword: {
-		DisplayName: Pigman_sword
+		DisplayName: Pigman sword
 		Tooltip: ""
 	}
 
 	resatto_Breastplate: {
-		DisplayName: resatto_ Breastplate
+		DisplayName: resatto Breastplate
 		Tooltip: ""
 	}
 
 	resatto_Helmet: {
-		DisplayName: resatto_ Helmet
+		DisplayName: resatto Helmet
 		Tooltip: ""
 	}
 
 	resatto_Leggings: {
-		DisplayName: resatto_ Leggings
+		DisplayName: resatto Leggings
 		Tooltip: ""
 	}
 
 	Celeste_Breastplate: {
-		DisplayName: Celeste_ Breastplate
-		Tooltip: ""
+		DisplayName: Celeste Breastplate
+		Tooltip: 5% increased magic damage
 	}
 
 	Celeste_Helmet: {
-		DisplayName: Celeste_ Helmet
-		Tooltip: ""
+		DisplayName: Celeste Helmet
+		Tooltip: 5% increased magic damage
 	}
 
 	Celeste_Leggings: {
-		DisplayName: Celeste_ Leggings
-		Tooltip: ""
+		DisplayName: Celeste Leggings
+		Tooltip: 5% increased magic damage
 	}
 
 	Mercenary_Breastplate: {
-		DisplayName: Mercenary_ Breastplate
-		Tooltip: ""
+		DisplayName: Mercenary Breastplate
+		Tooltip:
+			'''
+			5% increased melee damage
+			3% increased crit chance
+			'''
 	}
 
 	Mercenary_Helmet: {
-		DisplayName: Mercenary_ Helmet
-		Tooltip: ""
+		DisplayName: Mercenary Helmet
+		Tooltip: 5% increased melee damage
 	}
 
 	Mercenary_Leggings: {
-		DisplayName: Mercenary_ Leggings
-		Tooltip: ""
+		DisplayName: Mercenary Leggings
+		Tooltip:
+			'''
+			5% increased melee damage
+			5% increased move speed
+			2% increased crit chance
+			'''
 	}
 
 	Squire_Breastplate: {
-		DisplayName: Squire_ Breastplate
-		Tooltip: ""
+		DisplayName: Squire Breastplate
+		Tooltip: 5% increased melee damage
 	}
 
 	Squire_Helmet: {
-		DisplayName: Squire_ Helmet
-		Tooltip: ""
+		DisplayName: Squire Helmet
+		Tooltip: 5% increased melee damage
 	}
 
 	Squire_Leggings: {
-		DisplayName: Squire_ Leggings
-		Tooltip: ""
+		DisplayName: Squire Leggings
+		Tooltip: 5% increased melee damage
 	}
 
 	Starlight_Breastplate: {
-		DisplayName: Starlight_ Breastplate
-		Tooltip: ""
+		DisplayName: Starlight Breastplate
+		Tooltip: 8% increased magic damage
 	}
 
 	Starlight_Helmet: {
-		DisplayName: Starlight_ Helmet
-		Tooltip: ""
+		DisplayName: Starlight Helmet
+		Tooltip: 8% increased magic damage
 	}
 
 	Starlight_Leggings: {
-		DisplayName: Starlight_ Leggings
-		Tooltip: ""
+		DisplayName: Starlight Leggings
+		Tooltip: 8% increased magic damage
 	}
 
 	Squire_Sword: {
-		DisplayName: Squire_ Sword
+		DisplayName: Squire Sword
 		Tooltip: ""
 	}
 
 	Mercenary_Axe: {
-		DisplayName: Mercenary_ Axe
+		DisplayName: Mercenary Axe
 		Tooltip: ""
 	}
 
 	Celeste_wand: {
-		DisplayName: Celeste_wand
-		Tooltip: ""
+		DisplayName: Celeste wand
+		Tooltip:
+			'''
+			[c/ed9d01:Ability: Lightning Strike] [c/ffff55:RIGHT CLICK]
+			Strikes lightning up to 10 blocks away dealing [c/FF5555:40] damage to the nearest monster.
+			Mana Cost: [c/55FFFF:8]
+			'''
 	}
 
 	Starlight_Wand: {
-		DisplayName: Starlight_ Wand
-		Tooltip: ""
+		DisplayName: Starlight Wand
+		Tooltip:
+			'''
+			[c/ed9d01:Ability: Starfall] [c/ffff55:RIGHT CLICK]
+			Shower stars in a 3 blocks area for [c/55FF55:5s] , dealing [c/FF5555:50] damage per second to mobs within.
+			Mana Cost: [c/55FFFF:12]
+			Cooldown: [c/55FF55:2s].
+			'''
 	}
 }
 
@@ -189,6 +209,9 @@ Projectiles: {
 	or.DisplayName: or
 	Celestew_Proj.DisplayName: Celestew_ Proj
 	Starlightproj.DisplayName: Starlightproj
+	etoile.DisplayName: etoile
+	starrain.DisplayName: starrain
+	whiterain.DisplayName: whiterain
 }
 
 Biomes: {

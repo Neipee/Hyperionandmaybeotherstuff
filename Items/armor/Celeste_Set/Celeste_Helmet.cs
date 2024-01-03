@@ -16,7 +16,7 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Celeste_Set
 			Item.height = 18;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 2;
+			Item.defense = 3;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs) 
 		{
@@ -28,6 +28,10 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Celeste_Set
 			+"Gave you plus[c/55FFFF: 20 ✎]";
 
 			player.statManaMax2 += 20;
+		}
+		public override void UpdateEquip(Player player)
+		{
+			player.GetDamage<MagicDamageClass>() += 0.05f;
 		}
 	}
 }

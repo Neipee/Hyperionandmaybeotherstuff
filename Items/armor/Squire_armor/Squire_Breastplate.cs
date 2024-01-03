@@ -12,7 +12,7 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Squire_armor
 			Item.height = 18;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 3;
+			Item.defense = 5;
 		}
 		/*public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
@@ -21,5 +21,9 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Squire_armor
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}*/
+		public override void UpdateEquip(Player player)
+		{
+			player.GetDamage<MeleeDamageClass>() += 0.05f;
+		}
 	}
 }

@@ -203,21 +203,29 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 		{
 			button = "resatto armor";
 		}
-		else if (currentShopIndex == 1)
+		else if (currentShopIndex == 1 && NPC.downedBoss1)
 		{
 			button = "squire armor";
 		}
-		else if (currentShopIndex == 2)
+		else if (currentShopIndex == 2 && NPC.downedBoss2)
 		{
 			button = "Mercenary armor";
 		}
-		else if (currentShopIndex == 3)
+		else if (currentShopIndex == 3 && NPC.downedBoss1)
 		{
 			button = "Celeste armor";
 		}
-		else if (currentShopIndex == 4)
+		else if (currentShopIndex == 4 && NPC.downedBoss2)
 		{
 			button = "Starlight armor";
+		}
+		else
+		{
+			currentShopIndex += 1;
+			if (currentShopIndex > 4)
+			{
+				currentShopIndex = 0;
+			}
 		}
     }
 
@@ -231,7 +239,6 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
         {
             // Cycle to the next shop
        		currentShopIndex = (currentShopIndex + 1) % shopNames.Length;
-        	Main.NewText($"Switched to {shopNames[currentShopIndex]}");
         }
     }
 		public override void AddShops() {
@@ -266,254 +273,11 @@ namespace Hyperionandmaybeotherstuff.NPCs.friendlynpc
 		var npcShop5 = new NPCShop(Type, "Shop5")
 			.Add<Starlight_Helmet>()
 			.Add<Starlight_Breastplate>()
-			.Add<Starlight_Leggings>();
+			.Add<Starlight_Leggings>()
+			.Add<Starlight_Wand>();
 		npcShop5.Register();
-			/*var npcShop = new NPCShop(Type, ShopName)
-				.Add<resatto_Helmet>()
-				.Add<resatto_Breastplate>()
-				.Add<resatto_Leggings>()
-				.Add<Squire_Helmet>()
-				.Add<Squire_Breastplate>()
-				.Add<Squire_Leggings>()
-				.Add<Mercenary_Helmet>()
-				.Add<Mercenary_Breastplate>()
-				.Add<Mercenary_Leggings>()
-				.Add<Celeste_Helmet>()
-				.Add<Celeste_Breastplate>()
-				.Add<Celeste_Leggings>()
-				.Add<Starlight_Helmet>()
-				.Add<Starlight_Breastplate>()
-				.Add<Starlight_Leggings>();
 
-			npcShop.Register(); // Name of this shop tab*/
 		}
-
-    /*public override void AddShops()
-    {
-		var npcShop = new NPCShop(Type, ShopName1);
-		if  (currentShopIndex == 0)
-			{
-			npcShop
-				.Add<lapis_chestplate>()
-				.Add<resatto_Helmet>()
-				.Add<resatto_Breastplate>()
-				.Add<resatto_Leggings>();
-			}
-		if  (currentShopIndex == 1) 
-			{
-			npcShop
-				.Add<Squire_Helmet>()
-				.Add<Squire_Breastplate>()
-				.Add<Squire_Leggings>();
-			}
-		if  (currentShopIndex == 2) 
-			{
-			// Onglet pour l'armure Mercenary
-			npcShop
-				.Add<Mercenary_Helmet>()
-				.Add<Mercenary_Breastplate>()
-				.Add<Mercenary_Leggings>();
-			}
-		if  (currentShopIndex == 3) 
-			{
-			// Onglet pour l'armure Celeste
-			npcShop
-				.Add<Celeste_Helmet>()
-				.Add<Celeste_Breastplate>()
-				.Add<Celeste_Leggings>();
-			}
-		if  (currentShopIndex == 4) 
-			{
-			// Onglet pour l'armure Starlight
-			npcShop
-				.Add<Starlight_Helmet>()
-				.Add<Starlight_Breastplate>()
-				.Add<Starlight_Leggings>();
-			}
-
-
-	npcShop.Register();
-    }*/
-
-/*public override void AddShops() {
-    // Onglet pour l'armure Resatto
-    var resattoShop = new NPCShop(Type, ShopName1 + " - Resatto Armor")
-        .Add<resatto_Helmet>()
-        .Add<resatto_Breastplate>()
-        .Add<resatto_Leggings>();
-
-    // Onglet pour l'armure Squire
-    var squireShop = new NPCShop(Type, ShopName2 + " - Squire Armor")
-        .Add<Squire_Helmet>()
-        .Add<Squire_Breastplate>()
-        .Add<Squire_Leggings>();
-
-    // Onglet pour l'armure Mercenary
-    var mercenaryShop = new NPCShop(Type, ShopName3 + " - Mercenary Armor")
-        .Add<Mercenary_Helmet>()
-        .Add<Mercenary_Breastplate>()
-        .Add<Mercenary_Leggings>();
-
-    // Onglet pour l'armure Celeste
-    var celesteShop = new NPCShop(Type, ShopName4 + " - Celeste Armor")
-        .Add<Celeste_Helmet>()
-        .Add<Celeste_Breastplate>()
-        .Add<Celeste_Leggings>();
-
-    // Onglet pour l'armure Starlight
-    var starlightShop = new NPCShop(Type, ShopName5 + " - Starlight Armor")
-        .Add<Starlight_Helmet>()
-        .Add<Starlight_Breastplate>()
-        .Add<Starlight_Leggings>();
-
-    // Enregistrez tous les onglets
-    resattoShop.Register();
-    squireShop.Register();
-    mercenaryShop.Register();
-    celesteShop.Register();
-    starlightShop.Register();
-}*/
-
-
-
-
-
-   /*public override void AddShops()
-    {
-        var npcShop1 = new NPCShop(Type, ShopName1);
-        var npcShop2 = new NPCShop(Type, ShopName2);
-        var npcShop3 = new NPCShop(Type, ShopName3);
-        var npcShop4 = new NPCShop(Type, ShopName4);
-        var npcShop5 = new NPCShop(Type, ShopName5);
-
-        switch (currentShopIndex)
-        {
-            case 0:
-                AddShop1(npcShop1);
-                break;
-            case 1:
-                AddShop2(npcShop2);
-                break;
-            case 2:
-                AddShop3(npcShop3);
-                break;
-			case 3:
-                AddShop4(npcShop4);
-                break;
-			case 4:
-                AddShop5(npcShop5);
-                break;
-            // Add more cases as needed
-        }
-
-
-        npcShop1.Register();
-		npcShop2.Register();
-        npcShop3.Register();
-        npcShop4.Register();
-        npcShop5.Register();
-
-    }
-
-    private void AddShop1(NPCShop npcShop1)
-    {
-        npcShop1
-            .Add<resatto_Helmet>()
-            .Add<resatto_Breastplate>()
-            .Add<resatto_Leggings>();
-    }
-
-    private void AddShop2(NPCShop npcShop2)
-    {
-        npcShop2
-            .Add<Squire_Helmet>()
-            .Add<Squire_Breastplate>()
-            .Add<Squire_Leggings>();
-    }
-
-    private void AddShop3(NPCShop npcShop3)
-    {
-        npcShop3
-            .Add<Mercenary_Helmet>()
-            .Add<Mercenary_Breastplate>()
-            .Add<Mercenary_Leggings>();
-    }
-	    private void AddShop4(NPCShop npcShop4)
-    {
-        npcShop4
-            .Add<Celeste_Helmet>()
-            .Add<Celeste_Breastplate>()
-            .Add<Celeste_Leggings>();
-    }
-	    private void AddShop5(NPCShop npcShop5)
-    {
-        npcShop5
-            .Add<Starlight_Helmet>()
-            .Add<Starlight_Breastplate>()
-            .Add<Starlight_Leggings>();
-    }
-	*/
-
-
-
-
-
-
-
-
-
-
-
-
-		/*public override void SetChatButtons(ref string button, ref string button2) { // What the chat buttons are when you open up the chat UI
-			button = Language.GetTextValue("LegacyInterface.28");
-			button2 = "cycle shop";
-		}
-
-
-		public override void OnChatButtonClicked(bool firstButton, ref string shop) {
-			if (firstButton) {
-				// We want 3 different functionalities for chat buttons, so we use HasItem to change button 1 between a shop and upgrade action.
-
-				/*if (Main.LocalPlayer.HasItem(ItemID.HiveBackpack)) {
-					SoundEngine.PlaySound(SoundID.Item37); // Reforge/Anvil sound
-
-					Main.npcChatText = $"I upgraded your {Lang.GetItemNameValue(ItemID.HiveBackpack)} to a {Lang.GetItemNameValue(ModContent.ItemType<WaspNest>())}";
-
-					int hiveBackpackItemIndex = Main.LocalPlayer.FindItem(ItemID.HiveBackpack);
-					var entitySource = NPC.GetSource_GiftOrReward();
-
-					Main.LocalPlayer.inventory[hiveBackpackItemIndex].TurnToAir();
-					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<WaspNest>());
-
-					return;
-				}*
-
-				shop = ShopName; // Name of the shop tab we want to open.
-			}
-		}
-		public override void AddShops() {
-			var npcShop = new NPCShop(Type, ShopName)
-				.Add<resatto_Helmet>()
-				.Add<resatto_Breastplate>()
-				.Add<resatto_Leggings>()
-				.Add<Squire_Helmet>()
-				.Add<Squire_Breastplate>()
-				.Add<Squire_Leggings>()
-				.Add<Mercenary_Helmet>()
-				.Add<Mercenary_Breastplate>()
-				.Add<Mercenary_Leggings>()
-				.Add<Celeste_Helmet>()
-				.Add<Celeste_Breastplate>()
-				.Add<Celeste_Leggings>()
-				.Add<Starlight_Helmet>()
-				.Add<Starlight_Breastplate>()
-				.Add<Starlight_Leggings>();
-
-			npcShop.Register(); // Name of this shop tab
-		}
-
-		*/
 		public override bool CanGoToStatue(bool toKingStatue) => true;
 
 		// Make something happen when the npc teleports to a statue. Since this method only runs server side, any visual effects like dusts or gores have to be synced across all clients manually.

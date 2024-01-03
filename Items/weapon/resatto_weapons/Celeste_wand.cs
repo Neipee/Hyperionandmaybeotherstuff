@@ -20,7 +20,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
 
         public override void SetDefaults()
         {
-            Item.damage = 15;
+            Item.damage = 10;
             Item.DamageType = DamageClass.Magic;
             Item.width = 40;
             Item.height = 40;
@@ -34,7 +34,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             Item.autoReuse = true;
             Item.shoot = Mod.Find<ModProjectile>("Celestew_Proj").Type;
             Item.shootSpeed = 10f;
-            Item.mana = 8;
+            Item.mana = 9;
         }
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
@@ -42,12 +42,11 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
         Main.NewText($"Position de la souris en X : {Math.Round((player.Center.X - Main.MouseWorld.X) / 16)} testeste");
         /*Main.NewText($"Position de la souris en Y : {Main.MouseWorld.Y} testeste");
         Main.NewText($"Position du projectile en Y : {Main.screenPosition.Y - Main.projectile[Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI)].height} testeste");*/
-        float distopscreenmouse = (int)Math.Round((Main.MouseWorld.Y - (Main.screenPosition.Y - Main.projectile[Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI)].height))/16);
+        float distopscreenmouse = (int)Math.Round((Main.MouseWorld.Y - (Main.screenPosition.Y - Main.projectile[Projectile.NewProjectile(source, new Vector2(Main.screenPosition.Y, Main.MouseWorld.X), velocity, type, damage, knockback, player.whoAmI)].height))/16);
         //Main.NewText($"testestest {distopscreenmouse}");
         string sonale = son[Main.rand.Next(0, 3)];
         Vector2 spawnPosition = Main.MouseWorld;
-        spawnPosition.Y = Main.screenPosition.Y - Main.projectile[Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI)].height;
-        Main.NewText($"pos de position ??{position}");
+        spawnPosition.Y = Main.screenPosition.Y - Main.projectile[Projectile.NewProjectile(source, new Vector2(Main.screenPosition.Y,  Main.MouseWorld.X), velocity, type, damage, knockback, player.whoAmI)].height;
 
         if (-21 < nbdetile && nbdetile < 21)
         {
@@ -55,8 +54,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
             for (int i = 0; i < distopscreenmouse / 1.8; i++)
             {
                 // Créer un nouveau projectile
-                Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+1f);
-                Main.NewText($"pos joueur{player.position}");
+                Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+3f);
                 // Jouer le son sélectionné
                 SoundStyle style = new SoundStyle("Terraria/Sounds/" + sonale) with { Volume = .41f,  PitchVariance = .61f,};
                 SoundEngine.PlaySound(style);
@@ -72,7 +70,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
                 spawnPosition.X = player.Center.X + 20*16;
                 for (int i = 0; i < distopscreenmouse/1.8; i++)
                 {
-                    Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+1f);
+                    Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+3f);
                     SoundStyle style = new SoundStyle("Terraria/Sounds/" + sonale) with { Volume = .41f,  PitchVariance = .61f, };
                     SoundEngine.PlaySound(style);
                     spawnPosition.Y += 30f;
@@ -83,7 +81,7 @@ namespace Hyperionandmaybeotherstuff.Items.weapon.resatto_weapons
                 spawnPosition.X = player.Center.X - 20*16;
                 for (int i = 0; i < distopscreenmouse/1.8; i++)
                 {
-                    Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+1f);
+                    Projectile.NewProjectileDirect(source, spawnPosition, velocity, type, damage, knockback, player.whoAmI, i+3f);
                     SoundStyle style = new SoundStyle("Terraria/Sounds/" + sonale) with { Volume = .41f,  PitchVariance = .61f, };
                     SoundEngine.PlaySound(style);
                     spawnPosition.Y += 30f;

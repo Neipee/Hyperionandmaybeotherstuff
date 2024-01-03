@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using System;
 using Terraria.Graphics.Shaders;
-
+using Terraria.Audio;
 
 
 namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
@@ -31,17 +31,67 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
             Projectile.scale= 0.5f;
             Projectile.rotation = Main.rand.NextFloat(1.2f, 1.9f);
         }
-        private float timer = 0;
+
+
+
+		public override void AI()
+		{
+			this.whiteLightTimer--;
+			if (this.whiteLightTimer == 0)
+			{
+				float num = 3.132f;
+				double num2 = Math.Atan2((double)base.Projectile.velocity.X, (double)base.Projectile.velocity.Y) - (double)(num / 2f);
+				double num3 = (double)(num / 8f);
+				if (base.Projectile.owner == Main.myPlayer)
+				{
+					for (int i = 0; i < 1; i++)
+					{
+						double num4 = num2 + num3 * (double)(i + i * i) / 2.0 + (double)(32f * (float)i);
+						int num5 = Projectile.NewProjectile(base.Projectile.GetSource_FromThis(null), base.Projectile.Center.X, base.Projectile.Center.Y, (float)(Math.Sin(num4) * 5.0), (float)(Math.Cos(num4)*5.0), ModContent.ProjectileType<etoile>(), base.Projectile.damage, base.Projectile.knockBack, base.Projectile.owner, 0f, 0f, 0f);
+						int num6 = Projectile.NewProjectile(base.Projectile.GetSource_FromThis(null), base.Projectile.Center.X, base.Projectile.Center.Y, (float)(-(float)Math.Sin(num4) * 5.0), (float)(-(float)Math.Cos(num4) * 5.0), ModContent.ProjectileType<etoile>(), base.Projectile.damage, base.Projectile.knockBack, base.Projectile.owner, 0f, 0f, 0f);
+						Projectile projectile = Main.projectile[num5];
+						projectile.velocity.X = projectile.velocity.X * 0.1f;
+						Projectile projectile2 = Main.projectile[num5];
+						projectile2.velocity.Y = projectile2.velocity.Y * 0.1f;
+						Projectile projectile3 = Main.projectile[num6];
+						projectile3.velocity.X = projectile3.velocity.X * 0.1f;
+						Projectile projectile4 = Main.projectile[num6];
+						projectile4.velocity.Y = projectile4.velocity.Y * 0.1f;
+					}
+				}
+				this.whiteLightTimer = 5;
+			}
+			Lighting.AddLight(base.Projectile.Center, (float)(255 - base.Projectile.alpha) * 0.5f / 255f, (float)(255 - base.Projectile.alpha) * 0.5f / 255f, (float)(255 - base.Projectile.alpha) * 0.5f / 255f);
+			for (int j = 0; j < 2; j++)
+			{
+				int num7 = Dust.NewDust(new Vector2(base.Projectile.position.X, base.Projectile.position.Y), base.Projectile.width, base.Projectile.height, DustID.GemDiamond, 0f, 0f, 100, default(Color), 1.25f);
+				Main.dust[num7].noGravity = true;
+				Main.dust[num7].velocity *= 0.5f;
+				Main.dust[num7].velocity += base.Projectile.velocity * 0.1f;
+			}
+		}
+
+		// Token: 0x06004C89 RID: 19593 RVA: 0x0024D170 File Offset: 0x0024B370
+		public override void OnKill(int timeLeft)
+		{
+			//SoundEngine.PlaySound(ref SoundID.Item122, new Vector2?(base.Projectile.position), null);
+			if (base.Projectile.owner == Main.myPlayer)
+			{
+				Projectile.NewProjectile(base.Projectile.GetSource_FromThis(null), base.Projectile.Center.X, base.Projectile.Center.Y - 100f, 0f, 0f, ModContent.ProjectileType<starrain>(), base.Projectile.damage, base.Projectile.knockBack, base.Projectile.owner, 0f, 0f, 0f);
+			}
+		}
+
+		// Token: 0x04000B59 RID: 2905
+		private int whiteLightTimer = 5;
+
+
+
+
+
+        /*private float timer = 0;
 
         public override void AI()
         {
-
-            /*if (++Projectile.frameCounter >= 4) 
-            {
-                Projectile.frameCounter = 0;
-                if (++Projectile.frame >= Main.projFrames[Projectile.type])
-                    Projectile.frame = 0;
-            }*/
             timer += 1f;
             if (timer % 20 == 0)
             {
@@ -51,9 +101,7 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
                 //Projectile.velocity.Y=50f;
             if (timer % 10 == 0)
             {
-                /*int dust = Dust.NewDust(Projectile.position, Projectile.height, Projectile.width, DustID.GolfPaticle, 1f, 1f, 71, new Color(255,255,255), 1f);
-                Main.dust[dust].velocity = Projectile.velocity * 0f;
-                Main.dust[dust].noGravity = true;*/
+
                 if (Main.rand.NextFloat() < 0.9302326f)
                 {
                     Dust dust1;
@@ -64,6 +112,6 @@ namespace Hyperionandmaybeotherstuff.projectiles.resattoproj
                     dust1.shader = GameShaders.Armor.GetSecondaryShader(32, Main.LocalPlayer);
                 } 
             }
-        }
+        }*/
     }
 }

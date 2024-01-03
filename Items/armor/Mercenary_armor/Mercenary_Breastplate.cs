@@ -12,7 +12,12 @@ namespace Hyperionandmaybeotherstuff.Items.armor.Mercenary_armor
 			Item.height = 18;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 3;
+			Item.defense = 7;
+		}
+		public override void UpdateEquip(Player player)
+		{
+			player.GetCritChance<MeleeDamageClass>() += 3f;
+			player.GetDamage<MeleeDamageClass>() += 0.05f;
 		}
 		/*public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
