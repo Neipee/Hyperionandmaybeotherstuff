@@ -56,12 +56,12 @@ namespace Hyperionandmaybeotherstuff.NPCs.hostilenpc
 			});
                 }
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
-        npcLoot.Add(ItemDropRule.OneFromOptions(80, ModContent.ItemType<lapis_chestplate>() , ModContent.ItemType<lapis_leggings>() , ModContent.ItemType<lapis_helmet>())) ;
+        npcLoot.Add(ItemDropRule.OneFromOptions(50, ModContent.ItemType<lapis_chestplate>() , ModContent.ItemType<lapis_leggings>() , ModContent.ItemType<lapis_helmet>())) ;
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
             // Check if the player is in the granite biome
             if (spawnInfo.Player.ZoneGranite /*&& !NPC.AnyNPCs(Type)*/) {
-                return 0.1f; //SpawnCondition.OverworldNightMonster.Chance * 10f; // Spawn with 1/10th the chance of a regular zombie.
+                return 0.65f; //SpawnCondition.OverworldNightMonster.Chance * 10f; // Spawn with 1/10th the chance of a regular zombie.
             }
             return 0f;
         }

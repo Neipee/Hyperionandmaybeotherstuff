@@ -36,5 +36,25 @@ namespace Hyperionandmaybeotherstuff.Items.weapon
             Item.shoot = Mod.Find<ModProjectile>("or").Type;
             Item.shootSpeed = 0f;
         }
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            
+            Vector2 playerPos = player.Center;
+            Vector2 cursorPos = Main.MouseWorld;
+            float distance = Vector2.Distance(playerPos, cursorPos);
+            int numProjectiles = (int)(distance / 35f);
+            for (float i = 0; i < numProjectiles; i++)
+            {
+                
+                float segmentFraction = (float)i / (float)(numProjectiles - 1);
+                Vector2 spawnPosition = Vector2.Lerp(playerPos, cursorPos, segmentFraction);
+                spawnPosition.Y -= 16f;
+                Projectile.NewProjectileDirect(source, spawnPosition , velocity, type, damage, knockback, player.whoAmI, i*2f+10f);  
+
+            }
+            
+
+            return false; // Retourne false car nous ne voulons pas que tModLoader génère de projectiles
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Hyperionandmaybeotherstuff.Tiles
 			Main.tileBlockLight[Type] = true;
 
 			LocalizedText name = CreateMapEntryName();
-			AddMapEntry(new Color(152, 171, 198), name);
+			AddMapEntry(new Color(255, 0, 0), name.WithFormatArgs("Lapis Ore"));
 
 			DustType = 84;
 			HitSound = SoundID.Tink;

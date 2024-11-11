@@ -6,6 +6,10 @@ using Terraria.DataStructures;
 using System;
 using System.Threading;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using Terraria.IO;
+using Terraria.Localization;
+using Terraria.WorldBuilding;
 
 
 

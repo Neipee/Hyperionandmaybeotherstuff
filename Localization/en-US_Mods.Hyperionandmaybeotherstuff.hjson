@@ -224,6 +224,11 @@ Biomes: {
 		DisplayName: Obsidian Quarry
 		TownNPCDialogueName: the Obsidian Quarry
 	}
+
+	ExampleUndergroundBiome: {
+		DisplayName: Example Underground Biome
+		TownNPCDialogueName: the Example Underground Biome
+	}
 }
 
 WorldGen: {
