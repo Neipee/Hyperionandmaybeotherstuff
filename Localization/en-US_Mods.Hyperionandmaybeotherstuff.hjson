@@ -197,6 +197,16 @@ Items: {
 			Cooldown: [c/55FF55:2s].
 			'''
 	}
+
+	emerald_blade: {
+		DisplayName: emerald_blade
+		Tooltip: ""
+	}
+
+	Spirit_Scpetre: {
+		DisplayName: Spirit_ Scpetre
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -212,6 +222,8 @@ Projectiles: {
 	etoile.DisplayName: etoile
 	starrain.DisplayName: starrain
 	whiterain.DisplayName: whiterain
+	emerald_blade_swing.DisplayName: emerald_blade_swing
+	Bat.DisplayName: Bat
 }
 
 Biomes: {

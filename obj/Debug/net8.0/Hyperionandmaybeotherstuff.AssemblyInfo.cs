@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hyperionandmaybeotherstuff")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+552da71b27c2172281120c6d69ab85858bdb591c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a8610060a3e064e2a5d13b4f70d749a7bd256fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hyperionandmaybeotherstuff")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hyperionandmaybeotherstuff")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

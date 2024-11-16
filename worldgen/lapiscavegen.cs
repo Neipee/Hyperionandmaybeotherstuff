@@ -88,7 +88,56 @@ namespace Hyperionandmaybeotherstuff.worldgen
                         WorldGen.PlaceWall(x, y, WallID.GraniteUnsafe);
                     }
                 }
+            }        
+}
+    }
+
+
+    public static class MyAlgo
+    {
+        public static void ApplyExternalPatch()
+        {
+            const int rows = 60;
+            const int columns = 125;
+            char fillChar = '#';
+            char emptyChar = '.';
+            Random random = new Random();
+
+            char[,] matrix = InitializeMatrix(rows, columns, fillChar);
+            PopulateWithEmptySpaces(matrix, rows, columns, emptyChar, random);
+        }
+
+        private static char[,] InitializeMatrix(int rows, int columns, char fillChar)
+        {
+            char[,] matrix = new char[rows, columns];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    matrix[i, j] = fillChar;
+                }
             }
+            return matrix;
+        }
+
+        private static void PopulateWithEmptySpaces(char[,] matrix, int rows, int columns, char emptyChar, Random random)
+        {
+            for (int i = 0; i < columns; i += random.Next(4, 15))
+            {
+                int rowsToClear = random.Next(5, 15);
+                int columnsToClear = random.Next(5, 20);
+
+                for (int x = i; x < Math.Min(i + columnsToClear, columns); x++)
+                {
+                    for (int y = 0; y < Math.Min(rowsToClear, rows); y++)
+                    {
+                        matrix[y, x] = emptyChar;
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 
@@ -117,124 +166,3 @@ namespace Hyperionandmaybeotherstuff.worldgen
                     }
                 }
             }*/
-        }
-    }
-
-    public static class Myalgo
-    {
-        public static void applyexternpatch()
-        {
-            Random randr = new Random();
-            Random randc = new Random();
-            int rowog = 60;
-            int columnog = 125;
-            char fillChar = '#';
-            
-            char[,] matrix = new char[rowog, columnog];
-
-            for (int i = 0; i < rowog; i++)
-            {
-                for (int j = 0; j < columnog; j++)
-                {
-                    matrix[i, j] = fillChar;
-                }
-            }
-            char fillCharno = '.';
-            Random randi = new Random();
-            for (int i = 0; i < 125; i += randi.Next(4, 15))
-            {
-                int rows = randr.Next(5,15);
-                int columns = randc.Next(5,20);
-                for (int x = i; x<columns; x++)
-                {
-                    for (int y = 0; y<rows; y++)
-                    {
-                        matrix[i, x] = fillCharno;
-                    }
-                }
-            }
-        }
-    }
-    public static class CellularAutomata
-    {
-        public static bool[] Generate(int width, int height, int iterations = 4, int percentAreWalls = 40)
-        {
-            var map = new bool[width * height];
-            RandomFill(map, width, height, percentAreWalls);
-
-            for (var i = 0; i < iterations; i++)
-                map = Step(map, width, height);
-
-            return map;
-        }
-
-        private static void RandomFill(bool[] map, int width, int height, int percentAreWalls)
-        {
-            var randomColumn = Random.Shared.Next(4, width - 4);
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    if (x == 0 || y == 0 || x == width - 1 || y == height - 1)
-                        map[x + y * width] = true;
-                    else if (x != randomColumn && Random.Shared.Next(100) < percentAreWalls)
-                        map[x + y * width] = true;
-                }
-            }
-        }
-
-        private static bool[] Step(bool[] map, int width, int height)
-        {
-            var newMap = new bool[width * height];
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    if (x == 0 || y == 0 || x == width - 1 || y == height - 1)
-                        newMap[x + y * width] = true;
-                    else
-                        newMap[x + y * width] = PlaceWallLogic(map, width, height, x, y);
-                }
-            }
-            return newMap;
-        }
-
-        private static bool PlaceWallLogic(bool[] map, int width, int height, int x, int y)
-        {
-            return CountAdjacentWalls(map, width, height, x, y) >= 5 ||
-                   CountNearbyWalls(map, width, height, x, y) <= 2;
-        }
-
-        private static int CountAdjacentWalls(bool[] map, int width, int height, int x, int y)
-        {
-            int walls = 0;
-            for (int mapX = x - 1; mapX <= x + 1; mapX++)
-            {
-                for (int mapY = y - 1; mapY <= y + 1; mapY++)
-                {
-                    if (mapX >= 0 && mapY >= 0 && mapX < width && mapY < height && map[mapX + mapY * width])
-                        walls++;
-                }
-            }
-            return walls;
-        }
-
-        private static int CountNearbyWalls(bool[] map, int width, int height, int x, int y)
-        {
-            int walls = 0;
-            for (int mapX = x - 2; mapX <= x + 2; mapX++)
-            {
-                for (int mapY = y - 2; mapY <= y + 2; mapY++)
-                {
-                    if (Math.Abs(mapX - x) == 2 && Math.Abs(mapY - y) == 2)
-                        continue;
-                    if (mapX < 0 || mapY < 0 || mapX >= width || mapY >= height)
-                        continue;
-                    if (map[mapX + mapY * width])
-                        walls++;
-                }
-            }
-            return walls;
-        }
-    }
-}
